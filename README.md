@@ -2,6 +2,8 @@
 
 A simple, powerful command-line interface for [Fizzy.do](https://fizzy.do), the Kanban project management tool.
 
+Built with [libfizz-go](https://github.com/visionik/libfizz-go), the official Go library for the Fizzy.do API.
+
 ## Features
 
 - **Complete API Coverage**: All 11 Fizzy services supported (Identity, Boards, Cards, Comments, Reactions, Steps, Tags, Columns, Users, Notifications, Uploads)
