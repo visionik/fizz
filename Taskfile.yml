@@ -1,0 +1,61 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List all available tasks
+    cmds:
+      - task --list
+    silent: true
+
+  build:
+    desc: Build the fizz binary
+    cmds:
+      - go build -o fizz .
+    sources:
+      - "**/*.go"
+      - go.mod
+      - go.sum
+    generates:
+      - fizz
+
+  test:
+    desc: Run unit tests
+    cmds:
+      - go test -v ./...
+
+  test:coverage:
+    desc: Run tests with coverage report
+    cmds:
+      - go test -v -coverprofile=coverage.out ./...
+      - go tool cover -html=coverage.out -o coverage.html
+      - echo "Coverage report generated at coverage.html"
+
+  test:integration:
+    desc: Run integration tests (requires FIZZY_TOKEN and FIZZY_ACCOUNT)
+    cmds:
+      - go test -v -tags=integration ./tests/integration/...
+
+  lint:
+    desc: Run linters
+    cmds:
+      - go vet ./...
+      - go fmt ./...
+
+  check:
+    desc: Run all pre-commit checks
+    deps:
+      - lint
+      - test
+    cmds:
+      - echo "All checks passed!"
+
+  clean:
+    desc: Clean build artifacts
+    cmds:
+      - rm -f fizz
+      - rm -f coverage.out coverage.html
+
+  install:
+    desc: Install fizz to $GOPATH/bin
+    cmds:
+      - go install .
