@@ -2,7 +2,7 @@
 
 A simple, powerful command-line interface for [Fizzy.do](https://fizzy.do), the Kanban project management tool.
 
-Built with [libfizz-go](https://github.com/visionik/libfizz-go), the official Go library for the Fizzy.do API.
+Built with [libfizz-go](https://github.com/visionik/libfizz-go), a Go library for the Fizzy.do API.
 
 ## Features
 
