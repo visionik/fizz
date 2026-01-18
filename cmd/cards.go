@@ -53,6 +53,10 @@ var cardsListCmd = &cobra.Command{
 			return err
 		}
 
+		// Use compact display for table format, full data for JSON/YAML
+		if GetFormat() == "table" {
+			return formatter.Format(format.ToCardDisplaySlice(cards))
+		}
 		return formatter.Format(cards)
 	},
 }
@@ -82,6 +86,10 @@ var cardsGetCmd = &cobra.Command{
 			return err
 		}
 
+		// Use detail display for table format, full data for JSON/YAML
+		if GetFormat() == "table" {
+			return formatter.Format(format.ToCardDetailDisplay(*card))
+		}
 		return formatter.Format(card)
 	},
 }

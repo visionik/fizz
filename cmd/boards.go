@@ -43,6 +43,10 @@ var boardsListCmd = &cobra.Command{
 			return err
 		}
 
+		// Use compact display for table format, full data for JSON/YAML
+		if GetFormat() == "table" {
+			return formatter.Format(format.ToBoardDisplaySlice(boards))
+		}
 		return formatter.Format(boards)
 	},
 }
@@ -67,6 +71,10 @@ var boardsGetCmd = &cobra.Command{
 			return err
 		}
 
+		// Use detail display for table format, full data for JSON/YAML
+		if GetFormat() == "table" {
+			return formatter.Format(format.ToBoardDetailDisplay(*board))
+		}
 		return formatter.Format(board)
 	},
 }
