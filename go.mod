@@ -7,7 +7,7 @@ require (
 	github.com/olekukonko/tablewriter v1.1.3
 	github.com/spf13/cobra v1.10.2
 	github.com/stretchr/testify v1.11.1
-	github.com/visionik/libfizz-go v0.0.0-20260116224511-c872dbfc301d
+	github.com/visionik/libfizz-go v0.0.0-20260118160303-2a1c3beffe08
 	gopkg.in/yaml.v3 v3.0.1
 )
 
